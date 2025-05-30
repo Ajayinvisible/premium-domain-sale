@@ -13,6 +13,9 @@
         <!-- Template CSS -->
         <link rel="stylesheet" href="/backend/css/style.css">
         <link rel="stylesheet" href="/backend/css/components.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+            integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
         <!-- Custom style CSS -->
         <link rel="stylesheet" href="/backend/css/custom.css">
         <link rel='shortcut icon' type='image/x-icon' href='/backend/img/favicon.ico' />
@@ -45,7 +48,7 @@
                                 <a href="{{ route('profile.edit') }}" class="dropdown-item has-icon"> <i
                                         class="far
 										fa-user"></i> Profile
-                                </a> 
+                                </a>
                                 <div class="dropdown-divider"></div>
                                 <form action="{{ route('logout') }}" method="POST">
                                     @csrf
@@ -64,8 +67,11 @@
                 </div>
                 <!-- Main Content -->
                 <div class="main-content">
-                    @props(['title' => '', 'link' => '', 'linkTitle' => ''])
-                    <x-admin-main :title="$title" :link="$link" :linkTitle="$linkTitle">
+                    @include('sweetalert::alert')
+
+                    @props(['title' => '', 'link' => '', 'linkTitle' => '', 'icon' => ''])
+                    <x-admin-main :title="$title" :link="$link" :linkTitle="$linkTitle" :icon="$icon">
+                        {{-- This is the main content area where the page content will be displayed --}}
                         {{ $slot }}
                     </x-admin-main>
                 </div>

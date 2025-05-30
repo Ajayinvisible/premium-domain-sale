@@ -3,6 +3,6 @@
         {{ $title }}
     </h4>
     @if ($link)
-        <a href="{{ $link }}" class="btn btn-primary">{{ $linkTitle }}</a>
+        <a href="{{ $link }}" class="btn btn-primary"><i class="{{ $icon }}"></i> {{ $linkTitle }}</a>
     @endif
 </div>
